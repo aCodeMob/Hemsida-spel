@@ -26,6 +26,8 @@ main {
   background-color: #181b20;
   border-radius: 20px;
   padding: 50px 150px 0px;
+
+  position: relative;
 }
 
 #word {
@@ -115,4 +117,48 @@ main {
 #message {
   font-size: 5rem;
   text-align: center;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.game-container::after,
+.game-container::before {
+  --angle: 100deg;
+  content: "";
+  background-image: conic-gradient(
+    from var(--angle),
+    #fff397,
+    #ff4545,
+    #00ff99,
+    #006aff,
+    #ff0095,
+    #fff397
+  );
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 305px 300px;
+  border-radius: 12px;
+  animation: 3s spin linear infinite;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+.game-container::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
 }
