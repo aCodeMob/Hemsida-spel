@@ -1,10 +1,12 @@
 const images = [
+  { src: "images/bread.jpg", word: "bröd" },
   { src: "images/lamp.jpg", word: "lampa" },
   { src: "images/apple.jpg", word: "äpple" },
   { src: "images/car.jpg", word: "bil" },
   { src: "images/mouthwash.jpg", word: "munskölj" },
   { src: "images/dog.jpg", word: "hund" },
   { src: "images/cat.jpg", word: "katt" },
+  { src: "images/E.jpg", word: "ellinor" },
   { src: "images/house.jpg", word: "hus" },
   { src: "images/tree.jpg", word: "träd" },
   { src: "images/book.jpg", word: "bok" },
@@ -34,6 +36,7 @@ function checkAnswer() {
   if (inputElement.value.toLowerCase() === images[currentIndex].word) {
     messageElement.textContent = "🚀";
     btnCheck.style.display = "none";
+    messageElement.style.display = "none";
 
     setTimeout(() => {
       if (currentIndex < images.length - 1) {
@@ -41,6 +44,7 @@ function checkAnswer() {
         body.style.backgroundColor = "#000";
         gameContainer.style.backgroundColor = "#23272f";
         btnCheck.style.display = "inline-block";
+        messageElement.style.display = "block";
 
         loadImage();
       } else {
@@ -55,8 +59,17 @@ function checkAnswer() {
   }
 }
 
+// Event listener for button click
 btnCheck.addEventListener("click", function () {
   checkAnswer();
+});
+
+// Event listener for Enter key press
+inputElement.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    checkAnswer();
+  }
 });
 
 loadImage();

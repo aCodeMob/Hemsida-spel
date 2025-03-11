@@ -5,9 +5,8 @@ main {
 }
 
 body {
-  background-color: #000;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif,
-    sans-serif;
+  background-color: #131313;
+  font-family: "Noto Sans", Arial, sans-serif, sans-serif;
   text-align: center;
 }
 
@@ -23,16 +22,18 @@ main {
 }
 
 .game-container {
-  background-color: #181b20;
+  background-color: #181818;
   border-radius: 20px;
   padding: 50px 150px 0px;
+  box-shadow: inset 0px 0px 40px #0000008a;
 
   position: relative;
 }
 
 #word {
   color: rgb(255, 236, 129);
-  font-size: 3rem;
+  font-size: 3.4rem;
+  font-weight: 600;
   margin-block-end: 100px;
 }
 
@@ -144,7 +145,7 @@ main {
   left: 50%;
   translate: -50% -50%;
   z-index: -1;
-  padding: 305px 300px;
+  padding: 320px 300px;
   border-radius: 12px;
   animation: 3s spin linear infinite;
 }
